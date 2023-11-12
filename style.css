@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login_warp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #262626;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+form {
+    width: 100%;
+}
+
+.login_input {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box; /* 추가: 박스 모델에 패딩과 테두리 포함 */
+}
+
+input[type="submit"] {
+    background-color: #ff8080; /* 붉은 파스텔 계열 */
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff6666; /* 붉은 파스텔 계열 (마우스 호버 시) */
+}
+
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #dbdbdb;
+}
+
+a {
+    color: #0095f6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #262626;
+    font-size: 14px;
+}
