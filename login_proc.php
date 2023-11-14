@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+session_start();
 
 require_once 'db_func.php'; // 데이터베이스 연결 파일
 
@@ -22,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($check_result) > 0) {
         // 로그인 성공, index.php로 리다이렉션
-        header("Location: index.php?login_id=" . $id);
+        $_SESSION['id']=$id;
+        header("Location: index.php");
         exit();
     } else {
         // 로그인 실패, 로그인 페이지로 리다이렉션하며 메시지 전달

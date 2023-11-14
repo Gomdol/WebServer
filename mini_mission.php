@@ -2,6 +2,13 @@
 GET방식으로 학생 이름 나오면, 점수가 출력되는 페이지 만들기 -->
 
 <?php
+session_start();
+
+if (!isset($_SESSION['id'])){
+    header("Location: login.php");
+    exit;
+}
+
 require_once 'db_func.php';
 ?>
 

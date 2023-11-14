@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     // 메시지 초기화
     $message = "";
     if (isset($_GET['message'])) {
