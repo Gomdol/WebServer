@@ -5,7 +5,7 @@ if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit;
 } else {
-    header("Location: mini_mission.php");
+    header("Location: mypage.php");
     exit;
 }
 ?>

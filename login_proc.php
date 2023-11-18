@@ -2,7 +2,7 @@
 session_start();
 
 require_once 'db_func.php'; // 데이터베이스 연결 파일
-require_once 'login_func.php'; // 로그인함수 연결 파일
+require_once 'login_func_hashed.php'; // 로그인함수 연결 파일
 
 echo '<pre>';
 var_dump($_POST);
