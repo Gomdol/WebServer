@@ -11,7 +11,7 @@ require_once 'db_func.php'; // 데이터베이스 연결
 
 // 사용자 정보 조회
 $user_id = $_SESSION['id'];
-$query = "SELECT name, email FROM test_table WHERE name = '$user_id'";
+$query = "SELECT name, email FROM accounts WHERE name = '$user_id'";
 $result = mysqli_query($db_conn, $query);
 $user_data = mysqli_fetch_assoc($result);
 

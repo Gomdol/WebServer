@@ -5,7 +5,7 @@ function login1($id, $pw) {
     global $db_conn; // 데이터베이스 연결 변수를 전역으로 사용
 
     // 사용자가 입력한 ID를 이용해 데이터베이스에서 비밀번호 해시 가져오기
-    $check_query = "SELECT pass FROM test_table WHERE name = '$id'";
+    $check_query = "SELECT pass FROM accounts WHERE name = '$id'";
     $check_result = mysqli_query($db_conn, $check_query);
 
     if ($check_result && mysqli_num_rows($check_result) > 0) {

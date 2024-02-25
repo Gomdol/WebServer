@@ -27,7 +27,7 @@
                 <div class="login_input"><input type="submit" value="로그인"></div>
             </form>
             <hr>
-            <p><a href="find_pw.php">Forgot Password?</a></p>
+            <p><a href="password_reset.php">Forgot Password?</a></p>
             <p>Don't have an account? <a href="sign_up.php">Sign up</a></p>
             <?php
                 // 메시지가 설정되어 있다면 여기에서 메시지를 표시합니다.

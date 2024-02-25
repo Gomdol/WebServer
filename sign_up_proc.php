@@ -6,8 +6,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $password = $_POST['password'];
 
+    if (empty($email) || empty($name) || empty($password)) {
+        // 하나라도 비어있다면 에러 메시지와 함께 회원가입 페이지로 리다이렉트
+        header("Location: sign_up.php?message=모든 필드를 채워주세요.");
+        exit();
+    }
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
     // Check if the name already exists in the database
-    $check_query = "SELECT * FROM test_table WHERE name = '$name'";
+    $check_query = "SELECT * FROM accounts WHERE name = '$name'";
     $check_result = mysqli_query($db_conn, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
@@ -16,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     } else {
         // If the name is not in the database, insert the new user
-        $insert_query = "INSERT INTO test_table (name, pass, email) VALUES ('$name', '$password', '$email')";
+        $insert_query = "INSERT INTO accounts (name, pass, email) VALUES ('$name', '$hashed_password', '$email')";
         $insert_result = mysqli_query($db_conn, $insert_query);
 
         if ($insert_result) {

@@ -5,7 +5,7 @@ function hashExistingPasswords() {
     global $db_conn;
 
     // 현재 평문으로 저장된 모든 비밀번호와 사용자 이름(name) 가져오기
-    $query = "SELECT name, pass FROM test_table";
+    $query = "SELECT name, pass FROM accounts";
     $result = mysqli_query($db_conn, $query);
 
     if (!$result) {
@@ -18,7 +18,7 @@ function hashExistingPasswords() {
         $hashed_password = password_hash($plain_password, PASSWORD_DEFAULT);
 
         // 해시된 비밀번호를 데이터베이스에 업데이트
-        $update_query = "UPDATE test_table SET pass = '$hashed_password' WHERE name = '$name'";
+        $update_query = "UPDATE accounts SET pass = '$hashed_password' WHERE name = '$name'";
         if (!mysqli_query($db_conn, $update_query)) {
             die("Error updating password for user $name: " . mysqli_error($db_conn));
         }

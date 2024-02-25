@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once 'db_func.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
