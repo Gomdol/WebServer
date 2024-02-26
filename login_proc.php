@@ -4,11 +4,6 @@ session_start();
 require_once 'db_func.php'; // 데이터베이스 연결 파일
 require_once 'login_func_hashed.php'; // 로그인함수 연결 파일
 
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-// 이 코드 아래에 로그인 검증 로직이 있어야 합니다.
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 입력 받은 id와 pw
     $id = $_POST['id'];
