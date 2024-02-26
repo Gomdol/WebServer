@@ -32,7 +32,7 @@ if (!$post) {
 </head>
 <body>
 <section id="write">
-    <form action="edit_proc.php" method="post">
+    <form action="edit_proc.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="idx" value="<?php echo $idx; ?>">
         <div class="form-group">
             <label for="title">제목</label>
@@ -42,6 +42,13 @@ if (!$post) {
             <label for="content">내용</label>
             <textarea id="content" name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea>
         </div>
+        
+        <!-- 파일 업로드 필드 추가 -->
+        <div class="form-group">
+            <label for="file">파일 첨부</label>
+            <input type="file" id="file" name="file">
+        </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-outline-secondary">수정 완료</button>
         </div>

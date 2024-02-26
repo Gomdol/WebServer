@@ -56,6 +56,25 @@ if ($post) {
         <textarea id="content" name="content" disabled><?php echo htmlspecialchars($post['content']); ?></textarea>
     </div>
     <?php if ($isUserAuthor): ?>
+    <?php endif; ?>
+    <?php
+        if ($post) {
+            // 파일 경로가 있는지 확인
+            if (!empty($post['file_path'])) {
+                $filePath = $post['file_path'];
+                $fileExtension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+                $allowedImageExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+                // 이미지 파일인 경우 이미지 미리보기를 제공
+                if (in_array($fileExtension, $allowedImageExtensions)) {
+                    echo "<div><img src='" . htmlspecialchars($filePath) . "' alt='Uploaded Image' style='max-width: 500px;'></div>";
+                } else {
+                    // 이미지가 아닌 파일의 경우 다운로드 링크를 제공
+                    echo "<div><a href='" . htmlspecialchars($filePath) . "' download>첨부 파일 다운로드</a></div>";
+                }
+            }
+        }
+    ?>
     <div class="form-group">
         <!-- 수정 버튼: <a> 태그 대신 <button> 사용 -->
         <button class="btn btn-outline-secondary" type="button" id="edit-button">수정</button>
@@ -65,7 +84,6 @@ if ($post) {
             <button type="submit" class="btn btn-outline-secondary">삭제</button>
         </form>
     </div>
-    <?php endif; ?>
 
     <script>
     // 수정 버튼에 클릭 이벤트 리스너 추가
